@@ -1,0 +1,105 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    background: white;
+}
+.section{
+    top: 150px;
+    position: relative;
+    width: 100vw;
+    /*margin: 0px 10vw;*/
+}
+.container{
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    background: white;
+}
+.slide{
+    position: relative;
+    top: 150px;
+    height:500px;
+    overflow:hidden;
+}
+.slide ul{
+    width:calc(100% * 4);
+    display:flex;
+    animation:slide 10s infinite;
+} /* slide를 8초동안 진행하며 무한반복 함 */
+.slide li{
+    width:calc(100% / 4);
+    height:500px;
+}
+.slide li:nth-child(1){background:#ffa;}
+.slide li:nth-child(2){background:#faa;}
+.slide li:nth-child(3){background:#afa;}
+.slide li:nth-child(4){background:#aaf;}
+@keyframes slide {
+    0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+    10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+    25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+    35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+    50% {margin-left:-200%;}
+    60% {margin-left:-200%;}
+    75% {margin-left:-300%;}
+    85% {margin-left:-300%;}
+    100% {margin-left:0;}
+}
+.menu_content{
+    box-sizing: border-box;
+    display: inline-block;
+    color: black;
+    width: 100vw;
+    background: white;
+    border-radius: 10px;
+}
+.menu_content ul{
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+}
+.menu_content li{
+    box-sizing: border-box;
+    display: flex;
+    width: 33.3333vw;
+    height: 33vw;
+    border: 1px solid #ddd;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    visibility: hidden;
+    animation-duration: 2s;
+    animation-name: loading;
+}
+.loading_img{
+    height: 40vh;
+    width: 40vh;
+    position: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@keyframes loading{
+    0%{
+        opacity: 1;
+    }
+    85%{
+        visibility: visible;
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;    
+        visibility: hidden;
+    }
+}
